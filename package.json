@@ -1,0 +1,38 @@
+{
+  "name": "prisma-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@opengovsg/design-system-react": "^1.19.0",
+    "@prisma/client": "^5.11.0",
+    "@tanstack/react-query": "^4.29.1",
+    "@tanstack/react-query-devtools": "^4.32.0",
+    "@trpc/client": "^10.31.0",
+    "@trpc/next": "^10.31.0",
+    "@trpc/react-query": "^10.31.0",
+    "@trpc/server": "^10.31.0",
+    "next": "^13.5.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "superjson": "^2.2.1",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.8",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4",
+    "prisma": "^5.11.0",
+    "typescript": "^5"
+  }
+}
