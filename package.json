@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "prebuild": "run-s generate migrate",
+    "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate": "prisma migrate deploy",
-    "postinstall": "prisma generate"
+    "postinstall": "npm run generate"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
