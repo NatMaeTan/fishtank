@@ -15,8 +15,12 @@ const Index = () => {
     const temp = [...fishesToDisplay]
     temp.push(newFish)
     setFishesToDisplay(temp)
-    
   }
+
+  useEffect(()=>{
+    
+  })
+
   return (
     <VStack justify={'center'} align={'center'} width="100%" height="100vh">
       <Text fontSize="90px"> Welcome to your fish tank</Text>
