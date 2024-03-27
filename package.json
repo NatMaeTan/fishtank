@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "npm run generate migrate",
+    "prebuild": "npm-run-all -s generate migrate",
     "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate": "prisma migrate deploy",
