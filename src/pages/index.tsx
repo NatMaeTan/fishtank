@@ -1,5 +1,5 @@
 import { Flex, VStack, Text } from '@chakra-ui/react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { trpc } from '@/utils/trpc'
 import { AddFishTankButton } from '@/features/fishtank/components/AddFishTankButtons'
 import fishtank from 'public/assets/fishtank_static.png'
@@ -8,18 +8,27 @@ import { FishObject } from '@/features/fishtank/components/Fish'
 import { Fish, FishType } from '@/features/fishtank/type/fish'
 
 const Index = () => {
-  const fishes = trpc.fish.list.useQuery()
+  const {data} = trpc.fish.list.useQuery()
+  const createFishMutation = trpc.fish.create.useMutation()
   const [fishesToDisplay, setFishesToDisplay] = useState<Fish[]>([])
-  const addFish = (id: string, name: string, type: FishType) => {
-    const newFish: Fish = {id, type, name}
+  const addFish = async ( name: string, type: FishType) => {
+    const newFish = await createFishMutation.mutateAsync({name, type})
     const temp = [...fishesToDisplay]
-    temp.push(newFish)
+    temp.push(newFish as Fish)
     setFishesToDisplay(temp)
   }
 
   useEffect(()=>{
-    
-  })
+    if (data) {
+      setFishesToDisplay(data.map((fish)=>{
+        return {
+          id: fish.id,
+          name: fish.name,
+          type: fish.type as FishType
+        }
+      }))
+    }
+  },[data])
 
   return (
     <VStack justify={'center'} align={'center'} width="100%" height="100vh">

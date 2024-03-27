@@ -10,7 +10,7 @@ import fish6 from 'public/assets/fish6_bag.svg'
 import { FishType } from '../type/fish'
 import { v4 as uuidv4 } from 'uuid'
 type AddFishTankButtonProps = {
-  onAddFish: (id: string, name: string, type: FishType) => void
+  onAddFish: ( name: string, type: FishType) => void
 }
 
 export const AddFishTankButton = ({onAddFish}: AddFishTankButtonProps) => {
@@ -66,7 +66,7 @@ export const AddFishTankButton = ({onAddFish}: AddFishTankButtonProps) => {
       />
       <Button w="200px" height='20px' isDisabled={!(selectedFish && fishName)} onClick={()=>{
         const id = uuidv4();
-        onAddFish(id, fishName, selectedFish!)
+        onAddFish(fishName, selectedFish!)
         setFishName('')
         setSelectedFish(undefined)
       }}>Add to tank</Button>
