@@ -62,7 +62,8 @@ export const AddFishTankButton = ({onAddFish}: AddFishTankButtonProps) => {
       <Input
         width="200px"
         value={fishName}
-        onChange={(event) => setFishName(event.target.value)}
+        onChange={(event) => {if (event.target.value.length <=28){
+          setFishName(event.target.value)}}}
       />
       <Button w="200px" height='20px' isDisabled={!(selectedFish && fishName)} onClick={()=>{
         const id = uuidv4();
